@@ -5,17 +5,21 @@ class FocoService {
 
   Future<bool> cambiarEstado(bool encender) async {
     try {
-      final ahora = DateTime.now().toUtc().toIso8601String(); // formato ISO
+      final ahora = DateTime.now().toUtc().toIso8601String();
 
+      // Guardar historial
       await _db.child('acciones').push().set({
         'estado': encender,
         'timestamp': ahora,
       });
 
-      print('✅ Acción guardada: $encender a las $ahora');
+      // Actualizar estado actual del foco
+      await _db.child('foco').child('estado').set(encender);
+
+      print('✅ Estado actualizado y acción registrada');
       return true;
     } catch (e) {
-      print('❌ Error al guardar acción: $e');
+      print('❌ Error al actualizar foco: $e');
       return false;
     }
   }

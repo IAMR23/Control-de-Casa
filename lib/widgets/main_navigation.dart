@@ -29,7 +29,10 @@ class _MainNavigationState extends State<MainNavigation> {
         selectedItemColor: Colors.white, // Íconos seleccionados blancos
         unselectedItemColor: Colors.black54, // Íconos no seleccionados en gris
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Foco'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.monitor_sharp),
+            label: 'Monitoreo',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.done),
             label: 'Acciones Realizadas',

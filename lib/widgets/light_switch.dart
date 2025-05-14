@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-class FocoSwitch extends StatelessWidget {
+class LightSwitch extends StatelessWidget {
   final bool encendido;
   final Function(bool) onChanged;
 
-  const FocoSwitch({Key? key, required this.encendido, required this.onChanged})
-    : super(key: key);
+  const LightSwitch({
+    Key? key,
+    required this.encendido,
+    required this.onChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "433723340637",
+    "firebase_url": "https://puerta-app-7a930-default-rtdb.firebaseio.com",
+    "project_id": "puerta-app-7a930",
+    "storage_bucket": "puerta-app-7a930.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433723340637:android:4ee797f6cf619213eb1ab4",
+        "android_client_info": {
+          "package_name": "com.example.foco_led_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZvChupgamvPbnB-eLpSldr75S38ZSc3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

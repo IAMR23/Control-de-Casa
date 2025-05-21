@@ -24,13 +24,13 @@ class HistorialWidget extends StatelessWidget {
           snapshot.data!.snapshot.value as Map,
         );
 
-        // Convertir los datos a una lista de objetos
         final acciones =
             data.entries.map((entry) {
-              return Light.fromMap(Map<String, dynamic>.from(entry.value));
+              final id = entry.key;
+              final map = Map<String, dynamic>.from(entry.value);
+              return Light.fromMap(id, map);
             }).toList();
 
-        // Ordenar por fecha descendente (reciente primero)
         acciones.sort((a, b) => b.timestamp.compareTo(a.timestamp));
 
         return ListView.builder(
@@ -42,8 +42,8 @@ class HistorialWidget extends StatelessWidget {
                 accion.estado ? Icons.lightbulb : Icons.lightbulb_outline,
                 color: accion.estado ? Colors.yellow : Colors.grey,
               ),
-              title: Text(accion.estado ? 'Encendido' : 'Apagado'),
-              subtitle: Text(accion.timestamp),
+              title: Text(accion.nombre),
+              subtitle: Text('${accion.ubicacion} - ${accion.timestamp}'),
             );
           },
         );

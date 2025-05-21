@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:foco_led_app/services/light_services.dart';
+import 'package:foco_led_app/services/door_services.dart';
 import 'package:foco_led_app/widgets/device_switch.dart';
 
-class LuzWidget extends StatefulWidget {
-  const LuzWidget({Key? key}) : super(key: key);
+class DoorWidget extends StatefulWidget {
+  const DoorWidget({Key? key}) : super(key: key);
 
   @override
-  State<LuzWidget> createState() => _LuzWidgetState();
+  State<DoorWidget> createState() => _LuzWidgetState();
 }
 
-class _LuzWidgetState extends State<LuzWidget> {
-  final FocoService _focoService = FocoService();
+class _LuzWidgetState extends State<DoorWidget> {
+  final DoorServices _focoService = DoorServices();
   final DatabaseReference focoRef = FirebaseDatabase.instance.ref(
-    'foco/estado',
+    'puerta/estado',
   );
 
   // Método que devuelve un Stream<bool> desde Firebase
@@ -53,11 +53,11 @@ class _LuzWidgetState extends State<LuzWidget> {
         return Column(
           children: [
             Icon(
-              estado ? Icons.lightbulb : Icons.lightbulb_outline,
+              estado ? Icons.door_front_door : Icons.door_front_door_outlined,
               size: 40,
-              color: estado ? Colors.yellow : Colors.black,
+              color: estado ? Colors.brown : Colors.black,
             ),
-            const Text('Foco', style: TextStyle(fontSize: 18)),
+            const Text('Puerta', style: TextStyle(fontSize: 18)),
             const SizedBox(height: 10),
             DeviceSwitch(estado: estado, onChanged: actualizarFoco),
           ],

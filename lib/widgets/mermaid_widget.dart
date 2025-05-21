@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:foco_led_app/services/light_services.dart';
+import 'package:foco_led_app/services/mermaids_services.dart';
 import 'package:foco_led_app/widgets/device_switch.dart';
 
-class LuzWidget extends StatefulWidget {
-  const LuzWidget({Key? key}) : super(key: key);
+class MermaidWidget extends StatefulWidget {
+  const MermaidWidget({Key? key}) : super(key: key);
 
   @override
-  State<LuzWidget> createState() => _LuzWidgetState();
+  State<MermaidWidget> createState() => _LuzWidgetState();
 }
 
-class _LuzWidgetState extends State<LuzWidget> {
-  final FocoService _focoService = FocoService();
+class _LuzWidgetState extends State<MermaidWidget> {
+  final MermaidsServices _alarmaService = MermaidsServices();
   final DatabaseReference focoRef = FirebaseDatabase.instance.ref(
-    'foco/estado',
+    'sirena/estado',
   );
 
   // Método que devuelve un Stream<bool> desde Firebase
@@ -24,8 +24,8 @@ class _LuzWidgetState extends State<LuzWidget> {
     });
   }
 
-  void actualizarFoco(bool encender) async {
-    final exito = await _focoService.cambiarEstado(encender);
+  void updateAlarm(bool encender) async {
+    final exito = await _alarmaService.cambiarEstado(encender);
     if (exito) {
       await focoRef.set(encender); // Actualiza Firebase
     } else {
@@ -53,13 +53,13 @@ class _LuzWidgetState extends State<LuzWidget> {
         return Column(
           children: [
             Icon(
-              estado ? Icons.lightbulb : Icons.lightbulb_outline,
+              estado ? Icons.notifications_active : Icons.notifications_active,
               size: 40,
-              color: estado ? Colors.yellow : Colors.black,
+              color: estado ? Colors.green : Colors.yellow,
             ),
-            const Text('Foco', style: TextStyle(fontSize: 18)),
+            const Text('Sirena', style: TextStyle(fontSize: 18)),
             const SizedBox(height: 10),
-            DeviceSwitch(estado: estado, onChanged: actualizarFoco),
+            DeviceSwitch(estado: estado, onChanged: updateAlarm),
           ],
         );
       },

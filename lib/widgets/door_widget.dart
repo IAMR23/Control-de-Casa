@@ -11,7 +11,7 @@ class DoorWidget extends StatefulWidget {
 }
 
 class _LuzWidgetState extends State<DoorWidget> {
-  final DoorServices _focoService = DoorServices();
+  final DoorServices _doorService = DoorServices();
   final DatabaseReference focoRef = FirebaseDatabase.instance.ref(
     'puerta/estado',
   );
@@ -24,10 +24,13 @@ class _LuzWidgetState extends State<DoorWidget> {
     });
   }
 
-  void actualizarFoco(bool encender) async {
-    final exito = await _focoService.cambiarEstado(encender);
+  void actualizarFoco(bool estado) async {
+    final exito = await _doorService.cambiarEstado(
+      device: "door",
+      estado: estado,
+    );
     if (exito) {
-      await focoRef.set(encender); // Actualiza Firebase
+      await focoRef.set(estado); // Actualiza Firebase
     } else {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

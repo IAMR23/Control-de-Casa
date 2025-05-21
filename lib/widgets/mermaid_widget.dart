@@ -24,10 +24,13 @@ class _LuzWidgetState extends State<MermaidWidget> {
     });
   }
 
-  void updateAlarm(bool encender) async {
-    final exito = await _alarmaService.cambiarEstado(encender);
+  void updateAlarm(bool estado) async {
+    final exito = await _alarmaService.cambiarEstado(
+      estado: estado,
+      device: "mermaid",
+    );
     if (exito) {
-      await focoRef.set(encender); // Actualiza Firebase
+      await focoRef.set(estado); // Actualiza Firebase
     } else {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

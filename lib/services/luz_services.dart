@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
 
-class DoorServices {
+class LuzServices {
   final _db = FirebaseDatabase.instance.ref();
 
   Future<bool> cambiarEstado({
@@ -15,10 +15,10 @@ class DoorServices {
 
       // Guardar historial
       await _db.child('acciones').push().set({
-        'nombre': "Puerta",
+        'nombre': device,
         'estado': estado,
         'timestamp': fechaHora,
-        'tipo': 'door',
+        'tipo': 'light',
       });
 
       // Actualizar estado actual del foco

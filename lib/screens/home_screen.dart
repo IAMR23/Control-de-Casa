@@ -18,27 +18,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    // Widgets separados que estarán fuera de la grilla
+    final humedadWidget = HumedadWidget();
+    final temperaturaWidget = TemperaturaWidget();
+
+    // Resto de widgets que irán dentro de la grilla
     final gridItems = [
-      HumedadWidget(),
-      TemperaturaWidget(),
       LuzWidget(),
       LuzPuertaWidget(),
       DoorWidget(),
       AlarmWidget(),
       DryControlWidget(),
       MermaidWidget(),
-      /*  Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            foco.estado ? Icons.lightbulb : Icons.lightbulb_outline,
-            size: 100,
-            color: foco.estado ? Colors.yellow : Colors.grey,
-          ),
-          const SizedBox(height: 24),
-          FocoSwitch(encendido: foco.estado, onChanged: actualizarFoco),
-        ],
-      ), */
     ];
 
     return Scaffold(
@@ -47,6 +38,18 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
+            // Humedad y Temperatura en una fila separada
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(child: humedadWidget),
+                const SizedBox(width: 16),
+                Expanded(child: temperaturaWidget),
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // Grilla con el resto de widgets
             GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

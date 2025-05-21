@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:foco_led_app/services/light_services.dart';
+import 'package:foco_led_app/services/luz_services.dart';
 import 'package:foco_led_app/widgets/device_switch.dart';
 
 class LuzWidget extends StatefulWidget {
@@ -11,7 +11,7 @@ class LuzWidget extends StatefulWidget {
 }
 
 class _LuzWidgetState extends State<LuzWidget> {
-  final FocoService _focoService = FocoService();
+  final LuzServices _focoService = LuzServices();
   final DatabaseReference focoRef = FirebaseDatabase.instance.ref(
     'foco/estado',
   );
@@ -24,10 +24,13 @@ class _LuzWidgetState extends State<LuzWidget> {
     });
   }
 
-  void actualizarFoco(bool encender) async {
-    final exito = await _focoService.cambiarEstado(encender);
+  void actualizarFoco(bool estado) async {
+    final exito = await _focoService.cambiarEstado(
+      device: "foco",
+      estado: estado,
+    );
     if (exito) {
-      await focoRef.set(encender); // Actualiza Firebase
+      await focoRef.set(estado); // Actualiza Firebase
     } else {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

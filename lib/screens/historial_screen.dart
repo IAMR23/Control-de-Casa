@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foco_led_app/widgets/historial_widget.dart'; // Asegúrate de importar tu widget
+import 'package:foco_led_app/widgets/historial_widget.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+class HistorialScreen extends StatelessWidget {
+  const HistorialScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class SettingsScreen extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            SizedBox(height: 200, child: HistorialWidget()),
+            Expanded(child: HistorialWidget()), // <- Aquí el cambio
           ],
         ),
       ),

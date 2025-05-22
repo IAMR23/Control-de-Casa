@@ -18,11 +18,11 @@ class HistorialWidget extends StatelessWidget {
       stream: ref.onValue,
       builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (!snapshot.hasData || snapshot.data!.snapshot.value == null) {
-          return Center(child: Text('No hay acciones registradas.'));
+          return const Center(child: Text('No hay acciones registradas.'));
         }
 
         final data = Map<String, dynamic>.from(
@@ -52,11 +52,11 @@ class HistorialWidget extends StatelessWidget {
                 leading: CircleAvatar(backgroundColor: _getColor(accion)),
                 title: Text(
                   accion.nombre,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 subtitle: Text(
                   '${accion.estado ? "Activado" : "Desactivado"}\n${accion.timestamp}',
-                  style: TextStyle(height: 1.4),
+                  style: const TextStyle(height: 1.4),
                 ),
                 isThreeLine: true,
               ),

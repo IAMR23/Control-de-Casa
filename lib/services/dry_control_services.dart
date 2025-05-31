@@ -18,7 +18,7 @@ class DryControlServices {
         'nombre': "Control de Ropa",
         'estado': estado,
         'timestamp': fechaHora,
-        'tipo': 'dry-control',
+        'tipo': 'ropa',
       });
 
       // Actualizar estado actual del foco

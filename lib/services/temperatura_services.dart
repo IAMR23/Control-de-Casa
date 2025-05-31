@@ -37,7 +37,7 @@ class TemperatureService {
     await FlutterLocalNotificationsPlugin().show(
       0,
       '¡Temperatura alta!',
-      'La temperatura ha subido a $valor °C',
+      'La temperatura ha subido al valor de  $valor °C',
       platform,
     );
   }

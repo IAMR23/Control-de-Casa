@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foco_led_app/services/lluvia_service.dart';
 import 'package:foco_led_app/widgets/alarm_widget.dart';
 import 'package:foco_led_app/widgets/door_widget.dart';
 import 'package:foco_led_app/widgets/dry_control_widget.dart';
@@ -7,6 +8,8 @@ import 'package:foco_led_app/widgets/luz_puerta_widget.dart';
 import 'package:foco_led_app/widgets/luz_widget.dart';
 import 'package:foco_led_app/widgets/mermaid_widget.dart';
 import 'package:foco_led_app/widgets/temperatura_widget.dart';
+import 'package:foco_led_app/services/robo_service.dart';
+import 'package:foco_led_app/services/incendio_service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key});
@@ -16,6 +19,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    // Activar la escucha de los streams
+    RoboService().roboStream().listen((_) {});
+    IncendioService().incendioStream().listen((_) {});
+    LluviaService().lluviaStream().listen((_) {});
+  }
+
   @override
   Widget build(BuildContext context) {
     // Widgets separados que estarán fuera de la grilla

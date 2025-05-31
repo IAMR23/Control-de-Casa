@@ -26,7 +26,7 @@ class _LuzWidgetState extends State<AlarmWidget> {
 
   void updateAlarm(bool estado) async {
     final exito = await _alarmaService.cambiarEstado(
-      device: "alarm",
+      device: "alarma",
       estado: estado,
     );
     if (exito) {

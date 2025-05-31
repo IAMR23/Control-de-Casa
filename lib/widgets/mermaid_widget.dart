@@ -27,7 +27,7 @@ class _LuzWidgetState extends State<MermaidWidget> {
   void updateAlarm(bool estado) async {
     final exito = await _alarmaService.cambiarEstado(
       estado: estado,
-      device: "mermaid",
+      device: "sirena",
     );
     if (exito) {
       await focoRef.set(estado); // Actualiza Firebase

@@ -18,7 +18,7 @@ class AlarmServices {
         'nombre': "Alarma",
         'estado': estado,
         'timestamp': fechaHora,
-        'tipo': 'alarm',
+        'tipo': 'alarma',
       });
 
       // Actualizar estado actual del foco

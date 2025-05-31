@@ -28,7 +28,7 @@ class _LuzWidgetState extends State<DryControlWidget> {
   void updateAlarm(bool estado) async {
     final exito = await _alarmaService.cambiarEstado(
       estado: estado,
-      device: 'dry-control',
+      device: 'ropa',
     );
     if (exito) {
       await focoRef.set(estado); // Actualiza Firebase

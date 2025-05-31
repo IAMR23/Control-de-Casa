@@ -12,11 +12,11 @@ Device deviceFactory(String id, Map<String, dynamic> map) {
   final tipo = map['tipo'] ?? ''; // Agrega este campo cuando guardes acciones
 
   switch (tipo) {
-    case 'alarm':
+    case 'alarma':
       return Alarm(nombre: nombre, estado: estado, timestamp: timestamp);
     case 'door':
       return Door(nombre: nombre, estado: estado, timestamp: timestamp);
-    case 'dry-control':
+    case 'ropa':
       return DryControl(nombre: nombre, estado: estado, timestamp: timestamp);
     case 'light':
       return Light(nombre: nombre, estado: estado, timestamp: timestamp);

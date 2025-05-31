@@ -9,7 +9,6 @@ Una aplicación móvil desarrollada en **Flutter** que permite **monitorear y co
 - **Flutter** – SDK para el desarrollo de interfaces móviles multiplataforma.
 - **Firebase Realtime Database** – Base de datos NoSQL en tiempo real.
 - **Firebase Authentication** – Inicio de sesión seguro con cuentas de usuario.
-- **Firebase Cloud Messaging** – Envío de notificaciones push.
 - **Arquitectura Modelo – Servicio – Vista (MSV)** – Para mantener la aplicación organizada.
 
 ---
@@ -32,5 +31,4 @@ Una aplicación móvil desarrollada en **Flutter** que permite **monitorear y co
 
 ---
 
-## 🧱 Arquitectura del proyecto
 

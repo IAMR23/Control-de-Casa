@@ -1,16 +1,36 @@
-# foco_led_app
+# 🔌 Foco LED App – Control Domótico con Flutter y Firebase
 
-A new Flutter project.
+Una aplicación móvil desarrollada en **Flutter** que permite **monitorear y controlar** dispositivos electrónicos de una casa inteligente en tiempo real, utilizando **Firebase Realtime Database** como backend.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🛠️ Tecnologías utilizadas
 
-A few resources to get you started if this is your first Flutter project:
+- **Flutter** – SDK para el desarrollo de interfaces móviles multiplataforma.
+- **Firebase Realtime Database** – Base de datos NoSQL en tiempo real.
+- **Firebase Authentication** – Inicio de sesión seguro con cuentas de usuario.
+- **Firebase Cloud Messaging** – Envío de notificaciones push.
+- **Arquitectura Modelo – Servicio – Vista (MSV)** – Para mantener la aplicación organizada.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📱 Funcionalidades principales
+
+- 🔐 Inicio de sesión seguro con cuentas creadas en Firebase.
+- 💡 Control remoto de:
+  - Focos inteligentes
+  - Puertas automatizadas
+  - Sistema de secado de ropa
+- 🌡 Monitoreo en tiempo real de:
+  - Humedad
+  - Temperatura
+- 🚨 Notificaciones automáticas ante:
+  - Lluvia detectada
+  - Incendios
+  - Intrusos
+- 🧭 Interfaz amigable y actualizada automáticamente gracias a Firebase.
+
+---
+
+## 🧱 Arquitectura del proyecto
+
